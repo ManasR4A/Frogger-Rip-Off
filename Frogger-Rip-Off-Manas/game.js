@@ -18,18 +18,33 @@ leftFlag = 1;
 rightFlag = 1;
 upFlag = 1;
 downFlag = 1;
-
+color="0xbbbbbb"
 function preload ()
 {
     this.load.image('frog', 'assets/frog.png');
-}
 
-function create (){
+   }
+
+function create ()
+{
+   var rect = new Phaser.Geom.Rectangle(0, 200, 200, 100);
     gameState.cursors = this.input.keyboard.createCursorKeys();
     gameState.frog = this.add.sprite(gameConfig.width/2, gameConfig.height - 25, 'frog');
-}
+ 
+    frog1 = this.add.sprite(0, gameConfig.height-75, 'frog');
+    frog2 = this.add.sprite(gameConfig.width, gameConfig.height-125, 'frog');
+    //graphics.fillStyle(color, alpha);
+    //graphics.fillRectShape(rect)
+
+ }   
 
 function update (){
+
+
+
+frog1.x+=0.7
+frog2.x-=0.7
+
     if (gameState.cursors.left.isDown){
         if (leftFlag == 1){
             if (gameState.frog.x > 50){
@@ -88,8 +103,8 @@ function update (){
             downFlag = 1;
         }
     }
-
 }
+
 
 
 
